@@ -9,9 +9,12 @@ public class CubeGenerator : MonoBehaviour
 
     public Material cubeMaterial; // Material used for GL lines
 
-    // Common parameter
+    // Common parameters
     public Vector3 cubeCenter = Vector3.zero;
     public float focalLength = 10f; // Optional focal length if needed
+
+    // Rotation (x, y, and z). Setting only z will behave like before.
+    public Vector3 cubeRotation = Vector3.zero;
 
     // Pyramid parameters
     public float pyramidBaseSize = 1f;
@@ -65,7 +68,21 @@ public class CubeGenerator : MonoBehaviour
         GL.PopMatrix();
     }
 
-    // Switches between drawing methods based on selected shape type.
+    // Rotates a vertex about cubeCenter using the Euler angles from cubeRotation.
+    Vector3 RotateVertex(Vector3 vertex)
+    {
+        Quaternion rot = Quaternion.Euler(cubeRotation.x, cubeRotation.y, cubeRotation.z);
+        return cubeCenter + rot * (vertex - cubeCenter);
+    }
+
+    // Draws a line between two points after applying the rotation.
+    void DrawLine(Vector3 start, Vector3 end)
+    {
+        GL.Vertex(RotateVertex(start));
+        GL.Vertex(RotateVertex(end));
+    }
+
+    // Draws the selected shape.
     void DrawShape()
     {
         switch (shapeType)
@@ -104,7 +121,7 @@ public class CubeGenerator : MonoBehaviour
         DrawLine(v2, v3);
         DrawLine(v3, v0);
 
-        // Sides from each base vertex to the apex
+        // Edges from each base vertex to the apex
         DrawLine(v0, apex);
         DrawLine(v1, apex);
         DrawLine(v2, apex);
@@ -160,7 +177,7 @@ public class CubeGenerator : MonoBehaviour
         int latSegments = sphereSegments;
         int lonSegments = sphereSegments;
 
-        // Horizontal circles (latitudes)
+        // Draw horizontal circles (latitudes)
         for (int i = 0; i <= latSegments; i++)
         {
             float lat = Mathf.Lerp(-90f, 90f, (float)i / latSegments);
@@ -185,7 +202,7 @@ public class CubeGenerator : MonoBehaviour
             DrawLine(prevPoint, firstPoint);
         }
 
-        // Vertical circles (longitudes)
+        // Draw vertical circles (longitudes)
         for (int j = 0; j < lonSegments; j++)
         {
             float lon = Mathf.Lerp(0, 360f, (float)j / lonSegments);
@@ -289,12 +306,5 @@ public class CubeGenerator : MonoBehaviour
             }
             DrawLine(prevPoint, firstPoint);
         }
-    }
-
-    // Helper method to draw a line between two points.
-    void DrawLine(Vector3 start, Vector3 end)
-    {
-        GL.Vertex(start);
-        GL.Vertex(end);
     }
 }

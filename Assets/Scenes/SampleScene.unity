@@ -171,6 +171,7 @@ MonoBehaviour:
   cubeMaterial: {fileID: 2100000, guid: bf1bd287f3cadf94a9b8a49b5bd8b100, type: 2}
   cubeCenter: {x: 0, y: 0, z: 0}
   focalLength: 10
+  cubeRotation: {x: -77.14, y: 314.37, z: 0}
   pyramidBaseSize: 1
   pyramidHeight: 1
   cylinderHeight: 3
@@ -231,6 +232,7 @@ MonoBehaviour:
   cubeMaterial: {fileID: 2100000, guid: bf1bd287f3cadf94a9b8a49b5bd8b100, type: 2}
   cubeCenter: {x: 0, y: 0, z: 0}
   focalLength: 10
+  cubeRotation: {x: -82.07, y: 280.31, z: 0}
   pyramidBaseSize: 1
   pyramidHeight: 1
   cylinderHeight: 2
@@ -368,6 +370,7 @@ MonoBehaviour:
   cubeMaterial: {fileID: 2100000, guid: bf1bd287f3cadf94a9b8a49b5bd8b100, type: 2}
   cubeCenter: {x: 0, y: 0, z: 0}
   focalLength: 10
+  cubeRotation: {x: -369.4, y: 320.4, z: 0}
   pyramidBaseSize: 1
   pyramidHeight: 1
   cylinderHeight: 2
@@ -443,6 +446,7 @@ MonoBehaviour:
   cubeMaterial: {fileID: 2100000, guid: bf1bd287f3cadf94a9b8a49b5bd8b100, type: 2}
   cubeCenter: {x: 0, y: 0, z: 0}
   focalLength: 10
+  cubeRotation: {x: 0, y: 0, z: 0}
   pyramidBaseSize: 1
   pyramidHeight: 1
   cylinderHeight: 2
@@ -503,6 +507,7 @@ MonoBehaviour:
   cubeMaterial: {fileID: 2100000, guid: bf1bd287f3cadf94a9b8a49b5bd8b100, type: 2}
   cubeCenter: {x: 0, y: 0, z: 0}
   focalLength: 10
+  cubeRotation: {x: -336.06, y: -327.99, z: 0}
   pyramidBaseSize: 1
   pyramidHeight: 1
   cylinderHeight: 2
